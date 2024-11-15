@@ -92,10 +92,59 @@ def draw_door(ctx):
    
     ctx.stroke()
 
+#drawing the chimney
+def draw_chimney(ctx):
+    ctx.save()
+    offset_x = -100  
+    ctx.move_to(400 + offset_x, 250)
+    ctx.line_to(400 + offset_x, 150)
+    ctx.line_to(430 + offset_x, 150)
+    ctx.line_to(430 + offset_x, 250)
+    ctx.close_path()
+
+    ctx.set_source_rgb(0.85, 0.85, 0.85)
+    ctx.fill_preserve()
+    ctx.set_source_rgb(0, 0, 0)
+    ctx.set_line_width(random.uniform(2, 4))
+    ctx.stroke()
+
+    ctx.move_to(430 + offset_x, 250)
+    ctx.line_to(430 + offset_x, 150)
+    ctx.line_to(470 + offset_x, 140)
+    ctx.line_to(470 + offset_x, 210)
+    ctx.close_path()
+
+    ctx.set_source_rgb(0.75, 0.75, 0.75)
+    ctx.fill_preserve()
+    ctx.set_source_rgb(0, 0, 0)
+    ctx.set_line_width(random.uniform(2, 4))
+    ctx.stroke()
+
+    ctx.move_to(390 + offset_x, 150)
+    ctx.line_to(390 + offset_x, 120)
+    ctx.line_to(430 + offset_x, 120)
+    ctx.line_to(430 + offset_x, 150)
+    ctx.close_path()
+
+    ctx.move_to(430 + offset_x, 147)
+    ctx.line_to(430 + offset_x, 120)
+    ctx.line_to(485 + offset_x, 130)
+    ctx.line_to(485 + offset_x, 150)
+    ctx.close_path()
+
+    ctx.set_source_rgb(0.8, 0.8, 0.8)
+    ctx.fill_preserve()
+    ctx.set_source_rgb(0, 0, 0)
+    ctx.set_line_width(random.uniform(2, 4))
+    ctx.stroke()
+
+    ctx.restore()
+
 # Draw the walls with hand-drawn effect
 draw_base1(ctx)
 draw_base2(ctx)
 draw_door(ctx)
+draw_chimney(ctx)
 
 draw_window(ctx, 180, 360, 75, 120, 18)  # Right window
 draw_window(ctx, 290, 390, 75, 120, 18)    # Door window
