@@ -150,5 +150,42 @@ draw_window(ctx, 180, 360, 75, 120, 18)  # Right window
 draw_window(ctx, 290, 390, 75, 120, 18)    # Door window
 draw_window(ctx, 600, 450, 220, 100, 0)  # Left window
 
+# Draw the red roof
+def draw_roof(ctx):
+    # Fill and stroke the front roof
+    ctx.set_source_rgb(1, 0, 0)  # Bright red for the front roof
+    ctx.fill_preserve()
+    ctx.set_source_rgb(0, 0, 0)
+    ctx.set_line_width(5)
+    ctx.stroke()
+
+    # Side roof - darker red (left slanted side)
+    ctx.save()
+    ctx.scale(1.02, 0.98)
+    ctx.move_to(600, 180)  # Roof peak
+    ctx.line_to(400, 330)  # Right corner of side wall
+    ctx.line_to(150, 230)  # Left corner of side wall
+    ctx.close_path()
+    ctx.restore()
+
+    # Fill and stroke the side roof
+    ctx.set_source_rgb(0.8, 0, 0)  # Darker red for the side roof
+    ctx.fill_preserve()
+    ctx.set_source_rgb(0, 0, 0)
+    ctx.set_line_width(2)
+    ctx.stroke()
+
+    # Ridge - top line connecting both roof peaks (horizontal line across the top of the roof)
+    ctx.move_to(600, 180)  # Left peak
+    ctx.line_to(600, 180)  # Right peak (same point)
+    ctx.set_source_rgb(0, 0, 0)  # Black ridge line
+    ctx.set_line_width(3)  # Set line width for ridge
+    ctx.stroke()
+
+
+# Draw the red roof and the ridge
+draw_roof(ctx)
+
+
 
 surface.write_to_png("3D-house.png")
