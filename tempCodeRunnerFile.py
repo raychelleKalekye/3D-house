@@ -1,0 +1,1 @@
+surface.write_to_png("3D-house.png")
